@@ -292,12 +292,39 @@ td:first-child {
     height: 40%;
     width: 20%;
 }
-#celebrations{
-    display: none;
-    height: 40%;
-    width: 20%;
+#jkkk {
+  display: none;
+  flex-direction: column;
+  align-items: center;   /* centers children horizontally */
+  justify-content: center;
+  /* min-height: 100vh;     full screen height (optional) */
+  gap: 20px;             /* space between the two elements */
+  /* background-color: #1a1a1a; optional styling */
+  padding: 20px;
+}
+
+#celebrations {
+  font-size: 40px;
+  color: #00bcd4;
+  text-align: center;
+   /* display: none; */
+    height: 100px;
+    width: auto;
     align-items: center;
     justify-content: center;
     background: aqua;
     color: white;
 }
+
+#btnreset button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: none;
+  background-color: #00bcd4;
+  color: white;
+  cursor: pointer;
+  height: 50px;
+  width: auto;
+}
+
