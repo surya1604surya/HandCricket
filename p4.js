@@ -220,7 +220,9 @@ async function checkwining(ord,x,y){
         tab1.style.display='none';
         sb.style.display='none';
         // Show the specific element by ID
-        celebrations.style.display = "flex";
+        const id1234=document.getElementById("jkkk");
+        id1234.style.display="block";
+        // celebrations.style.display = "block";
         if(order==1){
             celebrations.innerText="COMPUTER WON";
         }else{
