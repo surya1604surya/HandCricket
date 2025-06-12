@@ -1,330 +1,557 @@
+/* Base Styles for all screen sizes (Mobile-first approach) */
 body {
     background-image: url('cricbg.jpeg'); /* Replace with your image path */
-    background-size: auto; /* Cover the entire screen */
+    background-size: cover; /* Cover the entire screen, more responsive than 'auto' */
     background-position: center; /* Center the image */
     background-repeat: no-repeat; /* No repeating */
     height: 100vh; /* Full viewport height */
     margin: 0;
-}
-h1{
-    background-color: black;
-    color: white;
-    font-size: 100px;
+    font-family: 'Inter', sans-serif; /* Recommended font */
     display: flex;
-    /* align-items: center; */
-    justify-content: center;
-    margin-top: 0px;
-}
-.but{
-    display: flex;
-    width:100%;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    /* margin-left: 50%; */
+    justify-content: flex-start; /* Align content to the top initially */
+    padding: 10px; /* Add some padding around the edges */
+    box-sizing: border-box; /* Include padding in element's total width and height */
 }
-#b1{
-    width: 100px;
-    height: 50px;
-    background: rgb(245, 3, 3);
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideInUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+h1 {
+    background-color: rgba(0, 0, 0, 0.7); /* Slightly transparent background */
     color: white;
-    cursor: pointer;
+    font-size: 2.5em; /* Responsive font size */
+    padding: 15px 20px;
+    border-radius: 15px; /* Rounded corners */
+    margin-top: 0px;
+    text-align: center;
+    width: 90%; /* Responsive width */
+    max-width: 600px; /* Max width for larger screens */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 1s ease-out, slideInUp 0.8s ease-out; /* Apply animations */
 }
-.startmenu{
-    display: none;
+
+.but {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+#b1 {
+    width: 150px;
+    height: 60px;
+    background: linear-gradient(45deg, #f50303, #ff5f00); /* Gradient background */
+    color: white;
+    font-size: 1.2em;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease; /* Smooth transition for hover effects */
+}
+
+#b1:hover {
+    transform: scale(1.05) translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(45deg, #ff5f00, #f50303); /* Reverse gradient on hover */
+}
+
+.startmenu {
+    display: none; /* Controlled by JS */
     flex-direction: column;
     justify-content: center;
     align-items: center;
-}
-.tcoin{
-    display: flex;
-    /* margin-left: 40%; */
-    /* margin-right: ; */
-    justify-content: center;
-    font-size: 40px;
-    animation: spin 0.4s linear 1;
-    /* margin-right: 100%; */
-}
-.selection{
-    display: flex;
-    justify-content: center;
-    font-size: 30px;
-    cursor: pointer;
-}
-#tossbtn{
-    /* margin-left: 45%; */
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     margin-top: 20px;
-    display: flex;
-    justify-content: center;
-    font-size: 40px;
-    cursor: pointer;
+    width: 90%;
+    max-width: 400px;
 }
-.h{
+
+.tcoin {
+    font-size: 1.8em; /* Responsive font size */
+    color: #333;
+    animation: spin 0.8s ease-in-out; /* Animation for tossing coin */
+    list-style: none; /* Remove bullet point */
+    padding: 0;
+    margin-bottom: 15px;
+}
+
+.selection {
     display: flex;
     justify-content: center;
-    font-size: 30px;
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    gap: 20px; /* Space between radio buttons */
+}
+
+.selection label {
+    cursor: pointer;
+    background-color: #f0f0f0;
+    padding: 10px 15px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.selection label:hover {
+    background-color: #e0e0e0;
+}
+
+.selection input[type="radio"] {
+    margin-right: 8px;
+}
+
+#tossbtn {
+    margin-top: 20px;
+    font-size: 1.5em;
+    padding: 12px 25px;
+    background: linear-gradient(45deg, #007bff, #00c7ff); /* Gradient background */
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+#tossbtn:hover {
+    transform: scale(1.05) translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(45deg, #00c7ff, #007bff);
+}
+
+.h {
+    display: flex;
+    justify-content: center;
+    font-size: 1.5em;
     background: red;
     color: black;
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 20px;
 }
-@keyframes spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+
+.gamee {
+    display: none; /* Controlled by JS */
 }
-.gamee{
-    display: none;
-}
-.result{
-    display:none;
+
+.result {
+    display: none; /* Controlled by JS */
+    flex-direction: column;
     justify-content: center;
-    flex-direction: row;
     align-items: center;
-}
-#tossr{
-    background: black;
+    background-color: rgba(0, 0, 0, 0.8);
     color: white;
-    font-size: 30px;
+    padding: 20px;
+    border-radius: 15px;
+    margin-top: 20px;
+    width: 90%;
+    max-width: 500px;
+    text-align: center;
 }
-#hd{
-    display: none;
+
+#tossr {
+    font-size: 1.5em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
 }
-#td{
-    display: none;
+
+#hd, #td {
+    display: none; /* Controlled by JS */
+    width: 150px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 0.5s ease-out;
 }
-#wonn{
-    display: none;
+
+#wonn, #lostt {
+    display: none; /* Controlled by JS */
     align-items: center;
     justify-content: center;
-    font-size: 30px;
-    border: 2px black;
-    background: rgb(3, 174, 248);
+    font-size: 1.5em;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    margin-top: 20px;
+    width: 80%;
+    max-width: 400px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    animation: slideInUp 0.6s ease-out;
+}
+
+#wonn {
+    background: #03aef8;
     color: #000;
-    /* white-space: nowrap; */
-    width:30%;
-    margin-left: 35%;
-    /* height  */
 }
-#lostt{
-    display: none;
-    align-items: center;
-    justify-content: center;
-    font-size: 40px;
-    font-style: bold;
+
+#lostt {
     background: #000;
     color: aquamarine;
-    width: 40%;
-    margin-left: 30%;
 }
-#gam{
-    display: none;
-    align-items: center;
-    background: rgb(111, 213, 93);
-    height: 200px;
-}
-.player{
-    margin-left: 20%;
-    width: 20%;
-    /* height: 100px; */
-    margin-right: 20%;
-    background-color: aqua;
-    font-size: 20px;
-}
-.computer{
-    width: 20%;
-    /* height: 100px; */
-    background-color: paleturquoise;
-    font-size: 20px;
-}
-#b11{
-    display: none;
-    margin-left: 40%;
+
+#b11 {
+    display: none; /* Controlled by JS */
     margin-top: 20px;
-    width: 20%;
-    justify-content: center;
-    align-items: center;
+    width: 180px;
     height: 50px;
-    font-size: 30px;
-    background: rgb(245, 3, 3);
+    font-size: 1.2em;
+    background: linear-gradient(45deg, #f50303, #ff5f00);
     color: white;
+    border: none;
+    border-radius: 10px;
     cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
 }
+
+#b11:hover {
+    transform: scale(1.05) translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(45deg, #ff5f00, #f50303);
+}
+
 .celebrations {
-    display: none; /* Enables flexbox for centering */
-    justify-content: center; /* Centers content horizontally */
-    height: 40%;
-    width: 40%;
-    align-items: center; /* Centers content vertically */
-    /* background-color: gold; Example background color */
-    border-radius: 10px; /* Slightly rounded corners */
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    display: none; /* Controlled by JS */
+    justify-content: center;
+    height: auto;
+    width: 80%;
+    max-width: 500px;
+    align-items: center;
+    background-color: gold; /* Example background color */
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    margin-top: 20px;
+    font-size: 1.8em;
+    color: #00bcd4;
+    text-align: center;
+    animation: fadeIn 0.8s ease-out, pulse 2s infinite; /* Animations for celebrations */
 }
-/* #infooo{
-    display: none;
-    margin-left: 40%;
-    font-size: 50px;
-    height: 50px;
-    font-style: bold;
-} */
-/* .scoreboard{
-    display: none;
-    height: 100px;
-} */
+
 .bcon {
-    display: none;
+    display: none; /* Controlled by JS */
     justify-content: center;
     align-items: center;
     padding: 10px;
-    gap: 10px;
+    gap: 15px; /* Space between buttons */
+    flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
+    margin-top: 20px;
+    width: 90%;
+    max-width: 600px;
 }
-.imgbtn{
+
+.imgbtn {
     border: none;
     padding: 0;
     background: none;
     cursor: pointer;
-    margin-left: 5%;
-    width: 10%;
-    margin-right: 5%;
+    width: 25%; /* Adjust width for better spacing */
+    max-width: 100px; /* Max width for image buttons */
     transition: transform 0.2s ease-in-out;
 }
-#s1{
-    margin-left: 0px;
-}
-#s6{
-    margin-right: 0px;
-}
+
 .imgbtn img {
-    width: 100px;
-    height: 100px;
+    width: 100%; /* Make image fill button */
+    height: auto; /* Maintain aspect ratio */
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
+
 .imgbtn:hover {
     transform: scale(1.1);
 }
-.tl{
-    display: none;
-    width: 80%;
-    height: auto; /* Table takes the full height of the viewport */
+
+.tl {
+    display: none; /* Controlled by JS */
+    width: 90%; /* Wider for mobile */
+    max-width: 800px; /* Max width for larger screens */
+    height: auto;
     border: 2px solid #0c033d;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     align-items: center;
-    justify-content:center;
-    margin: auto;
-    margin-top: 10px;
-    /* margin-left: 10%; */
-    /* margin-right: 10%; */
-}
-.y11{
-    width: 100%;
-    height: 40%; 
-    border-collapse: collapse;
-    align-items: center;
-    content:center;
-}
-.scoreboard {
-    display: none;
-    /* border: 2px solid #0c033d; */
-    /* width: 90%; */
-    /* width: 100%; */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    /* background-color: black; */
-    align-items: center;  /* Center vertically */
-    /* justify-content: center; Center horizontally */
-}
-.scoreboard table {
-    margin-left: 5%;
-    background: black;
-    border: 0px;
-    color: white;
-    width: 90%;
-     /* Adjust width as needed */
-}
-#infooo,#plasc,#comsc{
-    width: 30%;
-}
-#btnreset{
-    display: none;
-    align-items: center;
     justify-content: center;
+    margin: 20px auto; /* Center table */
 }
 
-tr{
-    height: auto; /* Ensure row height can adapt */
+.y11 {
+    width: 100%;
+    border-collapse: collapse;
 }
-  
-.r1{
-    height: 10%; /* 20% of the height for the first row */
+
+.scoreboard {
+    display: none; /* Controlled by JS */
+    width: 90%;
+    max-width: 800px;
+    margin: 20px auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    border-radius: 10px;
+    padding: 15px;
+}
+
+.scoreboard table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed; /* Ensures column widths are respected */
+}
+
+.scoreboard td {
+    padding: 8px 4px; /* Reduced padding for smaller screens */
+    font-size: 0.9em; /* Smaller base font size for mobile */
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    word-wrap: break-word; /* Allow long words to break */
+    white-space: normal; /* Allow text to wrap naturally */
+}
+
+#infooo, #plasc, #comsc {
+    width: 33.33%; /* Even distribution */
+}
+
+#btnreset {
+    display: none; /* Controlled by JS */
+    justify-content: center;
+    margin-top: 20px;
+}
+
+#reset {
+    background: linear-gradient(45deg, #02ef61, #5bff9b); /* Gradient background */
+    color: #0c033d;
+    height: 50px;
+    width: 150px;
+    font-size: 1.1em;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+#reset:hover {
+    transform: scale(1.05) translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(45deg, #5bff9b, #02ef61);
+}
+
+tr {
+    height: auto;
+}
+
+.r1 {
     background-color: #007bff;
     color: white;
-    /* margin-left: 10%; */
 }
-.r2{
-    height: 40%; /* 80% of the height for the second row */
+
+.r2 {
     background-color: #e9ecef;
-    /* margin-left: 10%; */
+    color: #333;
 }
-  
-td{
+
+td {
     border: 1px solid #ddd;
     width: 50%;
     text-align: center;
     padding: 10px;
-    font-size: 16px;
+    font-size: 1em; /* Base font size for general table cells */
 }
-#r21,#r22{
-    font-size: 100px;
+
+#r21, #r22 {
+    font-size: 3em; /* Larger font for scores */
+    font-weight: bold;
 }
+
 td:first-child {
     font-weight: bold;
-}  
-.i10 {
-    display: none;
-    height: 300px;
-    width: 300px;
-    margin: auto; /* Centers the element horizontally & vertically if the parent is flex */
-}
-#reset{
-    background: #02ef61;
-    color: #0c033d;
-    height: 40%;
-    width: 20%;
-}
-#jkkk {
-  display: none;
-  flex-direction: column;
-  align-items: center;   /* centers children horizontally */
-  justify-content: center;
-  /* min-height: 100vh;     full screen height (optional) */
-  gap: 20px;             /* space between the two elements */
-  /* background-color: #1a1a1a; optional styling */
-  padding: 20px;
 }
 
-#celebrations {
-  font-size: 40px;
-  color: #00bcd4;
-  text-align: center;
-   /* display: none; */
-    height: 100px;
-    width: auto;
+.i10 {
+    display: none; /* Controlled by JS */
+    width: 200px;
+    height: 200px;
+    object-fit: contain; /* Ensure image fits without distortion */
+    margin: 20px auto;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 0.5s ease-out;
+}
+
+#jkkk {
+    display: none; /* Controlled by JS */
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: aqua;
-    color: white;
+    gap: 20px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    margin-top: 30px;
+    width: 90%;
+    max-width: 500px;
 }
 
-#btnreset button {
-  padding: 10px 20px;
-  font-size: 16px;
-  border-radius: 6px;
-  border: none;
-  background-color: #00bcd4;
-  color: white;
-  cursor: pointer;
-  height: 50px;
-  width: auto;
+/* General utility class for hidden elements */
+.hid {
+    display: none;
 }
 
+/* Media Queries for Tablets */
+@media (min-width: 601px) and (max-width: 1024px) {
+    h1 {
+        font-size: 3.5em;
+        max-width: 700px;
+    }
+
+    #b1, #tossbtn, #b11, #reset {
+        width: 180px;
+        height: 65px;
+        font-size: 1.4em;
+    }
+
+    .startmenu, .result, #wonn, #lostt, #jkkk {
+        padding: 30px;
+        max-width: 500px;
+    }
+
+    .tcoin {
+        font-size: 2.2em;
+    }
+
+    .selection {
+        font-size: 1.4em;
+        gap: 30px;
+    }
+
+    #r21, #r22 {
+        font-size: 4em;
+    }
+
+    .imgbtn {
+        max-width: 120px;
+    }
+
+    .imgbtn img {
+        width: 120px;
+        height: 120px;
+    }
+
+    .i10 {
+        width: 250px;
+        height: 250px;
+    }
+
+    .scoreboard, .tl {
+        max-width: 90%;
+    }
+
+    .scoreboard td {
+        padding: 10px 8px; /* Slightly more padding for tablets */
+        font-size: 1em; /* Adjust font size for tablets */
+    }
+}
+
+/* Media Queries for Laptops/Desktops */
+@media (min-width: 1025px) {
+    body {
+        justify-content: center; /* Center content vertically on larger screens */
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 4.5em;
+        max-width: 800px;
+    }
+
+    #b1 {
+        width: 200px;
+        height: 70px;
+        font-size: 1.5em;
+    }
+
+    .startmenu, .result, #wonn, #lostt, #jkkk {
+        padding: 40px;
+        max-width: 600px;
+    }
+
+    .tcoin {
+        font-size: 2.5em;
+    }
+
+    .selection {
+        font-size: 1.5em;
+        gap: 40px;
+    }
+
+    #tossbtn, #b11, #reset {
+        width: 200px;
+        height: 70px;
+        font-size: 1.6em;
+    }
+
+    #r21, #r22 {
+        font-size: 5em;
+    }
+
+    .imgbtn {
+        max-width: 150px;
+    }
+
+    .imgbtn img {
+        width: 150px;
+        height: 150px;
+    }
+
+    .i10 {
+        width: 300px;
+        height: 300px;
+    }
+
+    .scoreboard, .tl {
+        max-width: 900px;
+    }
+
+    .scoreboard td {
+        padding: 10px; /* Standard padding for desktops */
+        font-size: 1.1em; /* Standard font size for desktops */
+    }
+}
+
+/* Adding blur effect for specific elements */
+.blur {
+    filter: blur(5px); /* Apply blur to elements with this class */
+    transition: filter 0.3s ease-out; /* Smooth transition for blur */
+}
+
+.blur.active {
+    filter: blur(0); /* Remove blur when active */
+}
